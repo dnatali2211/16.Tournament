@@ -13,18 +13,17 @@ class GameTest {
 
     @BeforeEach
     public void setup() {
+
         game.addPlayer(player1);
         game.addPlayer(player2);
         game.addPlayer(player3);
         game.addPlayer(player4);
     }
 
-//
-
     @Test
     public void shouldNotAddIfRegistered() {
         game.addPlayer(player1);
-        Assertions.assertTrue(game.getPlayersList().contains(player1));
+        Assertions.assertTrue(game.getPlayersList().containsValue(player1));
     }
 
     @Test
@@ -35,10 +34,10 @@ class GameTest {
         game.register(player3);
         game.register(player4);
 
-        Assertions.assertTrue(game.getPlayersList().contains(player1));
-        Assertions.assertTrue(game.getPlayersList().contains(player2));
-        Assertions.assertTrue(game.getPlayersList().contains(player3));
-        Assertions.assertTrue(game.getPlayersList().contains(player4));
+        Assertions.assertTrue(game.getPlayersList().containsValue(player1));
+        Assertions.assertTrue(game.getPlayersList().containsValue(player2));
+        Assertions.assertTrue(game.getPlayersList().containsValue(player3));
+        Assertions.assertTrue(game.getPlayersList().containsValue(player4));
     }
 
     @Test
@@ -48,7 +47,7 @@ class GameTest {
 
         game.register(player5);
 
-        Assertions.assertFalse(game.getPlayersList().contains(player5));
+        Assertions.assertFalse(game.getPlayersList().containsValue(player5));
     }
 
     @Test

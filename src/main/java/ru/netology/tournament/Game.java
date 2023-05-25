@@ -1,35 +1,27 @@
 package ru.netology.tournament;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
 
-    private ArrayList<Player> playersList = new ArrayList<>();
+    private HashMap<String, Player> playersList = new HashMap();
 
-    public ArrayList<Player> getPlayersList() {
+    public HashMap getPlayersList() {
         return playersList;
     }
 
     public void addPlayer(Player player) {
-        for (Player existingPlayer : playersList) {
-            if (existingPlayer.getName() == player.getName()) {
-                return;
+            if (!playersList.containsKey(player.getName())) {
+                playersList.put(player.getName(), player);
             }
-        }
-        playersList.add(player);
     }
 
     public void register(Player player) {
-        if (!playersList.contains(player)) return;
+        if (!playersList.containsValue(player)) return;
     }
 
     public Player findByName(String playerName) {
-        for (Player player : playersList) {
-            if (player.getName() == playerName) {
-                return player;
-            }
-        }
-        return null;
+        return playersList.get(playerName);
     }
 
     public int round(String playerName1, String playerName2) {
