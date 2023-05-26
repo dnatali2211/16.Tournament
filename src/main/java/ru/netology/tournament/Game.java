@@ -12,7 +12,7 @@ public class Game {
 
     public void addPlayer(Player player) {
         for (Player existingPlayer : playersList) {
-            if (existingPlayer.getName() == player.getName()) {
+            if (existingPlayer.getName().equals(player.getName())) {
                 return;
             }
         }
@@ -25,7 +25,7 @@ public class Game {
 
     public Player findByName(String playerName) {
         for (Player player : playersList) {
-            if (player.getName() == playerName) {
+            if (player.getName().equals(playerName)) {
                 return player;
             }
         }
